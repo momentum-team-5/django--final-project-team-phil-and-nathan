@@ -25,10 +25,11 @@ from snippet import views as snippet_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('registration.backends.simple.urls')),
     # path('contact/', snippet_views.contact_us, name='contact_us'),
     path('', snippet_views.snippets_list, name="snippets_list"),
     path('more_information/<int:pk>/', snippet_views.snippets_detail, name="snippets_detail"),
-    # path('add/', snippet_views.snippets_add, name="snippets_add"),
+    path('add/', snippet_views.add_snippet, name="add_snippet"),
     # path('delete/<int:pk>/', snippet_views.snippets_delete, name='snippets_delete'),
     # path('edit/<int:pk>/', snippet_views.snippets_edit, name='snippets_edit'),
     # path('search/', snippet_views.snippets_search, name='snippets_search'),
