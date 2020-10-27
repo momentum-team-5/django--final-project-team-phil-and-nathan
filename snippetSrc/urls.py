@@ -16,9 +16,22 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
+from snippet import views as snippet_views
+
+# from django.contrib import admin
+# from django.urls import path, include
+# from snippet import views as snippet_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('contact/', snippet_views.contact_us, name='contact_us'),
+    path('', snippet_views.snippets_list, name="snippets_list"),
+    path('<int:pk>/', snippet_views.snippets_detail, name="snippets_detail"),
+    # path('add/', snippet_views.snippets_add, name="snippets_add"),
+    # path('delete/<int:pk>/', snippet_views.snippets_delete, name='snippets_delete'),
+    # path('edit/<int:pk>/', snippet_views.snippets_edit, name='snippets_edit'),
+    # path('search/', snippet_views.snippets_search, name='snippets_search'),
 ]
 
 if settings.DEBUG:
@@ -29,3 +42,7 @@ if settings.DEBUG:
         # For django versions before 2.0:
         # url(r'^__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
+
+
+
+
