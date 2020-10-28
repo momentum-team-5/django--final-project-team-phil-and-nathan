@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{%block content%}
+<h4>{{snippet.title}}</h4>
+<p>
+    {{snippet.body}}
+</p>
+<p>
+    {{snippet.language}}
+</p>
+<p>
+    {{snippet.author}}
+</p>
+{% if request.user.is_authenticated and snippet.author == request.user%}
+<p><a href = "{% url 'edit_snippet' pk=snippet.pk %}">Edit Snippet</a></p>
+<p><a href = "{% url 'delete_snippet' pk=snippet.pk %}">Delete Snippet</a></p>
+{%endif%}
+
+
+
+{%endblock%}

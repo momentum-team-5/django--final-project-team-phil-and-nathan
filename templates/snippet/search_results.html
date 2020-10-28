@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Search Results</h3>
+
+<div>
+    
+    {% for snippet in snippets %}
+    <div>
+        <h4>{{ snippet.title }}</h4>
+        <p>    by {{ snippet.author }}</p>
+        <pre>{{ snippet.body }}</pre>
+        <p> {{ snippet.language }}</p>
+    </div>
+
+    {% endfor %}
+
+</div>
+{% endblock %}

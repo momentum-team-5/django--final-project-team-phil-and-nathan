@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
     # Project-specific
     'users',
+    'snippet',
 ]
 
 MIDDLEWARE = [
@@ -131,6 +132,7 @@ STATICFILES_DIRS = [
 # Custom user model
 
 AUTH_USER_MODEL = 'users.User'
+LOGIN_REDIRECT_URL = '/'
 
 # Debug toolbar config
 
@@ -139,3 +141,5 @@ INTERNAL_IPS = [
     '127.0.0.1',
     # ...
 ]
+
+SIMPLE_BACKEND_URL = '/' #Change this to a relevant url
