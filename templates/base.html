@@ -12,13 +12,16 @@
 </head>
 
 <body>
-    <header class="menu">
-        <a href="{% url 'snippets_list' %}">List of Snippets</a>
-        <a href="{% url 'add_snippet' %}">Add Snippet</a>
-        <a href="/accounts/logout/">logout</a>
-        <a href="/accounts/login/">login</a>
-        <a href="/accounts/register/">create account</a>
-
+    <p class="user"> active user: {{ user.username }}</p>
+    <header>
+        <p><a href="{% url 'snippets_list' %}">List of Snippets</a></p>
+        <p><a href="{% url 'add_snippet' %}">Add Snippet</a></p>
+        {% if user.is_authenticated %}
+        <p><a href="/accounts/logout/">logout</a></p>
+        {% else %}
+        <p><a href="/accounts/login/">login</a></p>
+        <p><a href="/accounts/register/">create account</a></p>
+        {% endif %}
     </header>
 
     <main>

@@ -8,15 +8,36 @@ a {
     color: black;
 }
 
-.menu {
+header {
     display: flex;
-    background-color: #ababab;
+    background-color: lightblue;
     flex: 1 1 auto;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-bottom: 1.5rem;
 }
 
-.menu>a {
+.user {
+    background-color: lightcyan;
+    text-align: center;
+}
+
+.flex-container,
+.flex-item {
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+
+.more-info,
+.snippet-title,
+.snippet-body {
+    padding-top: .5rem;
+}
+
+
+/* .menu>a {
     text-decoration: none;
     padding: 1rem;
 }
@@ -33,10 +54,12 @@ a {
 
 .success {
     font-size: 1.2rem;
-    color: green;
+    color: green; */
+
+
 }
 
-.error {
+/* .error {
     color: red;
     font-weight: bolder;
 }
@@ -64,16 +87,16 @@ a {
 .poem-body {
     margin: 1rem;
     margin-bottom: 1.2rem;
-}
+} */
 
-header {
+/* header {
     position: sticky;
     top: 0;
     margin-bottom: 1rem;
     width: 100vw;
-}
+} */
 
-footer {
+/* footer {
     position: sticky;
     bottom: 0;
     width: 100vw;
@@ -95,4 +118,4 @@ hr {
 .search-form ul {
     list-style-type: none;
     display: inline-flex;
-}
+} */
