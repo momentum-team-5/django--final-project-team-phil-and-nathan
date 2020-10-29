@@ -142,3 +142,5 @@ INTERNAL_IPS = [
     '127.0.0.1',
     # ...
 ]
+
+SIMPLE_BACKEND_URL = '/' #Change this to a relevant url
