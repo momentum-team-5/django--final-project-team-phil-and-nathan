@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import Snippet
 
 class SnippetForm(forms.ModelForm):
@@ -38,4 +39,3 @@ class SearchForm(forms.Form):
     language = forms.CharField(widget=forms.CharField, required=False)
     language_search_type = "exact match"
     order_by = forms.ChoiceField(choices=ORDER_CHOICES, widget=forms.RadioSelect, required=True)
-

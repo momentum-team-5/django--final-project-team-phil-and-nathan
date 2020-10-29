@@ -2,11 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Snippet
 from .forms import SnippetForm, SearchForm
-## import 404
-
-#from django.contribu.auth import authenticate, login
-#from .forms import PoemForm, CommentForm, ContactForm, SearchForm
-
 
 # Create your views here.
 def snippet_list(request):
@@ -16,9 +11,6 @@ def snippet_list(request):
 def snippet_detail(request, pk):
     snippet = get_object_or_404(Snippet, id=pk)
     return render(request, "snippet/snippet_detail.html", {"snippet": snippet})
-
-
-
 
 @login_required
 def add_snippet(request):
@@ -71,32 +63,6 @@ def delete_snippet(request, pk):
 
     return redirect(to="snippet_list")
 
-
-# def contact(request):
-#     if request.method == "GET":
-#         form = ContactForm()
-
-#     else:
-#         form = ContactForm(data=request.POST)
-
-#         if form.is_valid():
-#             user_email = form.cleaned_data['email']
-#             message_title = form.cleaned_data['title']
-#             message_body = form.cleaned_data['body']
-
-#             send_mail("Poems - Your message has been sent", "Your message has been sent! Expect to hear from an admin soon!", recipient_list=[user_email])
-#             mail_admins(message_title, message_body, fail_silently=True)
-
-#             success(request, "Your message was sent. Check your email for confirmation.")
-
-#             return redirect(to="poems_list")
-
-#         else:
-#             error("Your message couldn't be sent :(.")
-
-#     return render(request, "contact.html", {"form": form})
-
-
 def search(request):
     if request.method == "GET":
         form = SearchForm()
@@ -114,29 +80,8 @@ def search(request):
             if title:
                 snippets = snippets.filter(title__contains=title)
 
-            # if title:
-            #     title_search_type = form.cleaned_data['title_search_type']
-
-            #     if title_search_type == "starts with":
-            #         poems = poems.filter(title__startswith=title)
-
-            #     elif title_search_type == "includes":
-            #         poems = poems.filter(title__contains=title)
-
-            #     else:            #         poems = poems.filter(title__exact=title)
-
             if body:
                 snippets = snippets.filter(body__contains=body)
-            
-            """
-                body_search_type = form.cleaned_data['body_search_type']
-                if body_search_type == "starts with":
-                    poems = poems.filter(body__startswith=body)
-                elif body_search_type == "includes":
-                    poems = poems.filter(body__contains=body)
-                else:
-                    poems = poems.filter(body__exact=body)
-            """
 
             if language:
                 snippets = snippets.filter(language_contains=language)
@@ -146,11 +91,6 @@ def search(request):
             return render(request, "snippets/search_results.html", {"snippets": snippets})
 
     return render(request, "snippet/search.html", {"form": form})
-
-
-
-
-
 
 
 def copy_snippet(request, pk):
@@ -166,4 +106,3 @@ def copy_snippet(request, pk):
 
     #Add new snippet to copies of original
     snippet.copies.add(snippet_copy) 
-        

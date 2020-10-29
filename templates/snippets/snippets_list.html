@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+<h3>List of Snippets</h3>
+
+<div class="flex-container">
+    {% for snippet in snippets %}
+    <div class="flex-item">
+        <p class="snippet-title">{{ snippet.title }}</p>
+        <p class="snippet-body"> {{ snippet.body }}</p>
+        <p class="more-info"><a href="{% url 'snippets_detail' pk=snippet.pk %}">More Information</a></p>
+    </div>
+    {% endfor %}
+</div>
+{# put link to create new snippet page here #} {% endblock %}
