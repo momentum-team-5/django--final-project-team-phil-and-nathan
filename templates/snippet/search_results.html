@@ -6,12 +6,18 @@
 <div>
     
     {% for snippet in snippets %}
-    <div>
-        <h4>{{ snippet.title }}</h4>
-        <p>    by {{ snippet.author }}</p>
-        <pre>{{ snippet.body }}</pre>
-        <p> {{ snippet.language }}</p>
-    </div>
+    <h4>{{snippet.title}}</h4>
+
+    <pre><code class="language-{{snippet.language}}">
+        {{snippet.body}}
+    </code>
+    </pre>
+    <p>
+        Language: {{snippet.language}}
+    </p>
+  
+    <p><a href = "{% url 'edit_snippet' pk=snippet.pk %}">Edit Snippet</a></p>
+    <p><a href = "{% url 'delete_snippet' pk=snippet.pk %}">Delete Snippet</a></p>
 
     {% endfor %}
 
