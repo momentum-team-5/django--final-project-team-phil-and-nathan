@@ -32,6 +32,7 @@ header {
     padding-bottom: 1.5rem;
 }
 
-.snippet-body {
+.snippet-body,
+.snippet-language {
     padding-left: 1rem;
 }

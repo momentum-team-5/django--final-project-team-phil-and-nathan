@@ -5,7 +5,7 @@ from snippet import views as snippet_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('registration.backends.simple.urls'))
+    path('accounts/', include('registration.backends.simple.urls')),
     path('', snippet_views.snippet_list, name="snippet_list"),
     path('snippet_detail/<int:pk>/', snippet_views.snippet_detail, name="snippet_detail"),
     path('add/', snippet_views.add_snippet, name="add_snippet"),

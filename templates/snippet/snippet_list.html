@@ -8,7 +8,7 @@
         <p class="snippet-title">{{ snippet.title }}</p>
         <p class="snippet-body"> {{ snippet.body }}</p>
         <p class="snippet-language"> {{ snippet.language }}</p>
-        <p><a href="{% url 'snippet_detail' pk=snippet.pk %}">More Information</a></p>
+        <p class="more-info"><a href="{% url 'snippet_detail' pk=snippet.pk %}">More Information</a></p>
     </div>
     {% endfor %}
 </div>
