@@ -50,15 +50,9 @@ def edit_snippet(request, pk):
         form = SnippetForm(data=request.POST, instance=snippet)
 
         if form.is_valid():
-            form.save()  # We can save the form directly since the instance has already been created
-
-           #success message
-
+            form.save()  
+            
             return redirect(to="snippet_list")
-
-        else:
-            #error(request, "Your updates didn't work :(")
-            pass
 
     return render(request, "snippet/edit_snippet.html", {"form": form})
 
@@ -67,8 +61,7 @@ def edit_snippet(request, pk):
 def delete_snippet(request, pk):
     snippet = get_object_or_404(request.user.snippets.all(), pk=pk)
     snippet.delete()
-    #success message
-
+   
     return redirect(to="snippet_list")
 
 
@@ -101,11 +94,6 @@ def search(request):
             return render(request, "snippet/search_results.html", {"snippets": snippets})
 
     return render(request, "snippet/search.html", {"form": form})
-
-
-
-
-
 
 
 def copy_snippet(request, pk):
